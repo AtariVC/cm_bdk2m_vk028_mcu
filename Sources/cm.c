@@ -76,6 +76,9 @@ void cm_init(
 	if(load_cfg_state >= 0) {
 		pwr_change_default_state(cm_ptr->pwr_ptr, cm_ptr->loaded_cfg.cfg.body.power_state);
 	}
+	// else{
+	// pwr_set_default(cm_ptr->pwr_ptr);
+	// }
 	//
 	cm_constant_mode_ena(cm_ptr, 0x00);
 	//

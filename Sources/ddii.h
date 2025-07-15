@@ -21,7 +21,7 @@
 
 #define DDII_MKO_SA_SYS_FRAME     1
 #define DDII_MKO_SA_MEAS_FRAME    2
-#define DDII_MKO_SA_CMD           17
+#define DDII_MKO_SA_CMD           1
 
 /**
   * @brief  список команд МКО

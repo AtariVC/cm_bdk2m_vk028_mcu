@@ -111,5 +111,6 @@ int8_t pwr_buffer_init(typePower* pwr_ptr);
 int8_t pwr_buffer_write(typePower* pwr_ptr, type_PWR_CMD cmd);
 type_PWR_CMD pwr_buffer_read(typePower* pwr_ptr);
 int32_t pwr_buffer_process(typePower* pwr_ptr, uint32_t interval_ms);
+void pwr_set_default(typePower* pwr_ptr);
 
 #endif
