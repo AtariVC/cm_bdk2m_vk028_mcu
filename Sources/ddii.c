@@ -107,7 +107,7 @@ int8_t ddii_frame_forming(typeDDIIStruct* ddii_ptr)
 	uint8_t i = 0;
 	uint8_t retstate = 0;
 	for (i = DDII_REC_FIFO_DEPTH; i>0; i--){
-		if (ddii_read_fifo(ddii_ptr, &frame)){
+		// if (ddii_read_fifo(ddii_ptr, &frame)){
 			//
 			ddii_ptr->sys_ddii_frame.row.label = 0x0FF1;
 			ddii_ptr->sys_ddii_frame.row.definer = frame_definer(0, ddii_ptr->device_number, NULL, ddii_ptr->frame_type);
@@ -122,10 +122,10 @@ int8_t ddii_frame_forming(typeDDIIStruct* ddii_ptr)
 			//
 			ddii_ptr->frame_data_ready = 1;
 			retstate = 1;
-		}
-		else{
-			return 0;
-		}
+		// }
+		// else{
+		// 	return 0;
+		// }
 	}
 	return retstate;
 }
