@@ -554,14 +554,19 @@ void cm_frame_forming(typeCMModel* cm_ptr)
 	for (i=0; i<PWR_CH_NUMBER; i++) {
 		if (i == PWR_CM1){
 			if (cm_ptr->half_set_num){
-				cm_ptr->frame.sys.body.currents[i] = cm_ptr->pwr_ptr->ch[i+1].current_mA;
+				cm_ptr->frame.sys.body.currents[i] = 0;
 			}
 			else{
 				cm_ptr->frame.sys.body.currents[i] = cm_ptr->pwr_ptr->ch[i].current_mA;
 			}
 		}
 		else if (i == PWR_CM2){
-			cm_ptr->frame.sys.body.currents[i] = 0;
+			if (cm_ptr->half_set_num){
+				cm_ptr->frame.sys.body.currents[i] = cm_ptr->pwr_ptr->ch[i].current_mA;
+			}
+			else{
+				cm_ptr->frame.sys.body.currents[i] = 0;
+			}
 		}
 		else{
 			cm_ptr->frame.sys.body.currents[i] = cm_ptr->pwr_ptr->ch[i].current_mA;
