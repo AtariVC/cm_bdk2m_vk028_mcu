@@ -63,7 +63,7 @@ void cm_init(
 	//
 	cm_ptr->half_set_num = gpio_get(cm_ptr->hs_io_ptr);
 	cm_set_clear_status(cm_ptr, CM_STATUS_CFG_HALF_SET, cm_ptr->half_set_num & 0x01);
-	// stm_single_ch_const_set(cm_ptr->stm_ptr, NKBE, (cm_ptr->half_set_num & 0x01));
+	stm_single_ch_const_set(cm_ptr->stm_ptr, NKBE, (cm_ptr->half_set_num & 0x01));
 	//
 	cm_ptr->device_number = device_number;
 	cm_ptr->sw_version = get_version_from_str(ver_str);
