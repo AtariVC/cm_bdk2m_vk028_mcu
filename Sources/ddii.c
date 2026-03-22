@@ -229,7 +229,7 @@ void ddii_meas_cycl_init(typeDDIIStruct* ddii_ptr)
 	// циклограмма инициализации МПП
 	cyclo_init(&ddii_ptr->meas_cyclo, "ddii_cyclo");
 	//
-	cyclo_add_step(&ddii_ptr->meas_cyclo, ddii_meas_cycl_request, (void*)ddii_ptr, 0, 300, data);
+	cyclo_add_step(&ddii_ptr->meas_cyclo, ddii_meas_cycl_request, (void*)ddii_ptr, 0, 2000, data);
 	cyclo_add_step(&ddii_ptr->meas_cyclo, ddii_meas_cycl_read, (void*)ddii_ptr, 0, 0, data);
 	cyclo_add_step(&ddii_ptr->meas_cyclo, ddii_meas_cycl_frame_forming, (void*)ddii_ptr, 0, 0, data);
 }
