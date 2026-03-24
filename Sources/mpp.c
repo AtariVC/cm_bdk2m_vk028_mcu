@@ -588,7 +588,7 @@ void mpp_meas_cycl_init(typeMPPStruct* mpp_ptr)
 	cyclo_add_step(&mpp_ptr->meas_cyclo, mpp_meas_cycl_struct_get, (void*)mpp_ptr, 0, 50, data);
 	cyclo_add_step(&mpp_ptr->meas_cyclo, mpp_meas_cycl_win_val_get, (void*)mpp_ptr, 0, 50, data);
 	cyclo_add_step(&mpp_ptr->meas_cyclo, mpp_meas_cycl_forced_start, (void*)mpp_ptr, 0, 50, data);
-	// cyclo_add_step(&mpp_ptr->meas_cyclo, mpp_meas_cycl_set_offset, (void*)mpp_ptr, 0, 50, data);
+	cyclo_add_step(&mpp_ptr->meas_cyclo, mpp_meas_cycl_set_offset, (void*)mpp_ptr, 0, 50, data);
 	cyclo_add_step(&mpp_ptr->meas_cyclo, mpp_meas_cycl_set_win_bnd, (void*)mpp_ptr, 0, 50, data);
 	cyclo_add_step(&mpp_ptr->meas_cyclo, mpp_meas_cycl_rp_frame_forming, (void*)mpp_ptr, 0, 0, data);
 	cyclo_add_step(&mpp_ptr->meas_cyclo, mpp_meas_cycl_arch_offset_get, (void*)mpp_ptr, 50, 0, data);
