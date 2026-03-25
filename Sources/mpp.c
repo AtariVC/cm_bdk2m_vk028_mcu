@@ -91,10 +91,10 @@ int8_t mpp_process_tp(void* ctrl_struct, uint64_t time_us, typeProcessInterfaceS
 		mpp_ptr->last_call_time_us = time_us;
 		// user code begin
 		mpp_ptr->current_meas_interval = *(uint16_t*)&interface->shared_mem[64];
-		if((cyclo_get_operation_status(&mpp_ptr->meas_cyclo) == 0) && (mpp_ptr->mpp_max_survey_ena)){
-			mpp_mtrx_max_val_get(mpp_ptr);
-			mpp_rp_mtrx_val_process(mpp_ptr, mpp_ptr->matrix_raw.amplitude);
-		}
+		// if((cyclo_get_operation_status(&mpp_ptr->meas_cyclo) == 0) && (mpp_ptr->mpp_max_survey_ena)){
+		// 	mpp_mtrx_max_val_get(mpp_ptr);
+		// 	mpp_rp_mtrx_val_process(mpp_ptr, mpp_ptr->matrix_raw.amplitude);
+		// }
 		// user code end
 		retval = 1;
 	}

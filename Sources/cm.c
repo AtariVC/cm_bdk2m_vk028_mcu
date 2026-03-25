@@ -338,7 +338,6 @@ int8_t cm_process_tp(void* ctrl_struct, uint64_t time_us, typeProcessInterfaceSt
 		cm_ptr->ctrl.speedy_event = 0;
 	}
 	//** обработка приходящих событий **//
-
 	// self events (device is CM)
 	if(interface->event[CM] & CM_EVENT_SYS_INTERVAL_START){
 		interface->event[CM] &= ~CM_EVENT_SYS_INTERVAL_START;
