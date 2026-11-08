@@ -22,7 +22,7 @@
 //***Общие настройки***//
 
 //версия прошивки
-#define CM_SW_VERSION 			  "0.18"
+#define CM_SW_VERSION 			  "0.19"
 // номер устройства
 #define FRAME_DEV_ID 			    218 // (218 - отработочный)
 // параметры МКО
@@ -311,6 +311,16 @@ void cm_mko_command_interface_handler(typeCMModel *cm_ptr)
             mko_rt_write_to_subaddr(&mko_rt, CM_MKO_SA_ARCH_READ_CM, (uint16_t*)&frame);
           }
           break;
+        case CM_MKO_SA_ARCH_REQUEST_BDD:
+				  if ((sa_data[0] == 1) && (sa_data[1] == 0) && (sa_data[2] == 0) && (sa_data[3] == 0) ){
+				  	bdd_read_arch_frame(&bdd[0]);
+				  	mko_rt_write_to_subaddr(&mko_rt, CM_MKO_SA_ARCH_READ_BDD,   (uint16_t*)&bdd[0].arch_frame);
+				  }
+				  else if ((sa_data[0] == 2) && (sa_data[1] == 0) && (sa_data[2] == 0) && (sa_data[3] == 0) ){
+				  	bdd_read_arch_frame(&bdd[1]);
+				  	mko_rt_write_to_subaddr(&mko_rt, CM_MKO_SA_ARCH_READ_BDD,   (uint16_t*)&bdd[1].arch_frame);
+				  }
+				  break;
         case CM_MKO_SA_TECH_CMD:
           memcpy((uint8_t*)sa_data, (uint8_t*)mko_rt.sa_rx_data, 64);
           switch(sa_data[0]){

@@ -199,7 +199,7 @@ void mpp_mko_frame_forming(typeMPPStruct* mpp_ptr)
 	for(uint8_t rec_num = 0; rec_num<2; rec_num++){
 		mpp_ptr->mko_frame.mpp.rec[rec_num].AcqTime_s	= _rev_u32_by_u16(mpp_ptr->frame.mpp.rec[rec_num].AcqTime_s);
 		mpp_ptr->mko_frame.mpp.rec[rec_num].AcqTime_us	= _rev_u32_by_u16(mpp_ptr->frame.mpp.rec[rec_num].AcqTime_us);
-		mpp_ptr->mko_frame.mpp.rec[rec_num].WidhtTime	= (mpp_ptr->frame.mpp.rec[rec_num].WidhtTime);
+		mpp_ptr->mko_frame.mpp.rec[rec_num].WidhtTime	= _rev_u32_by_u16(mpp_ptr->frame.mpp.rec[rec_num].WidhtTime);
 		mpp_ptr->mko_frame.mpp.rec[rec_num].ZeroCount	= (mpp_ptr->frame.mpp.rec[rec_num].ZeroCount);
 		mpp_ptr->mko_frame.mpp.rec[rec_num].Peak		= (mpp_ptr->frame.mpp.rec[rec_num].Peak);
 		mpp_ptr->mko_frame.mpp.rec[rec_num].Power		= _rev_u32_by_u16(mpp_ptr->frame.mpp.rec[rec_num].Power);

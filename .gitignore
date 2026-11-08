@@ -7,7 +7,7 @@ doxygen/latex/
 /settings.json
 # Prerequisites
 *.d
-
+*.log
 # Object files
 *.o
 *.ko

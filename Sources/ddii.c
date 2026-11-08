@@ -142,7 +142,7 @@ void ddii_meas_request(typeDDIIStruct* ddii_ptr)
 	ctrl_data[1] = 0x01;
 	//....
 	mko_bc_set_bus(ddii_ptr->mko_bc_ptr, ddii_ptr->mko_bus);
-	mko_bc_transaction_start(ddii_ptr->mko_bc_ptr, MKO_BC_MODE_WRITE, ddii_ptr->mko_addr, DDII_MKO_SA_CMD, ctrl_data, 32);
+	mko_bc_transaction_start(ddii_ptr->mko_bc_ptr, MKO_BC_MODE_WRITE, ddii_ptr->mko_addr, DDII_MKO_SA_CMD, ctrl_data, 4);
 }
 
 /**
@@ -229,7 +229,7 @@ void ddii_meas_cycl_init(typeDDIIStruct* ddii_ptr)
 	// циклограмма инициализации МПП
 	cyclo_init(&ddii_ptr->meas_cyclo, "ddii_cyclo");
 	//
-	cyclo_add_step(&ddii_ptr->meas_cyclo, ddii_meas_cycl_request, (void*)ddii_ptr, 0, 300, data);
+	cyclo_add_step(&ddii_ptr->meas_cyclo, ddii_meas_cycl_request, (void*)ddii_ptr, 0, 1000, data);
 	cyclo_add_step(&ddii_ptr->meas_cyclo, ddii_meas_cycl_read, (void*)ddii_ptr, 0, 0, data);
 	cyclo_add_step(&ddii_ptr->meas_cyclo, ddii_meas_cycl_frame_forming, (void*)ddii_ptr, 0, 0, data);
 }

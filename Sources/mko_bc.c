@@ -213,7 +213,7 @@ uint8_t mko_bc_transaction_start_by_cw(typeMKOBCStruct *mko_ptr, uint16_t cw_var
       }
     case MKO_BC_MODE_WRITE:
       Timers_Start(1, 1);
-      result.u32 = mko_bc_tx(mko_ptr, cw.field.addr, cw.field.sub_addr, cw.field.leng, data);
+      result.u32 = mko_bc_tx(mko_ptr, cw.field.addr, cw.field.sub_addr, leng, data);
       switch (result.uf.tfrst){
         case TFRST_SUCCESS:
           return 1;

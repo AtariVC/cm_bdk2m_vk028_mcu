@@ -497,7 +497,7 @@ void cm_set_interval_value(typeCMModel* cm_ptr, uint16_t interval_number, uint16
 			cm_ptr->ctrl.intervals_us[CM_INTERV_MEAS] = 1000000 * get_val_from_bound(interval_value_s, 10, 7200);
 			break;
 		case(CM_INTERVAL_SPEED): 
-			cm_ptr->ctrl.intervals_us[CM_INTERVAL_SPEED] = 1000000 * get_val_from_bound(interval_value_s, 10, 7200);
+			cm_ptr->ctrl.intervals_us[CM_INTERVAL_SPEED] = 1000000 * get_val_from_bound(interval_value_s, 2, 7200);
 			break;
 		case(CM_INTERVAL_DBG):
 			cm_ptr->ctrl.intervals_us[CM_INTERVAL_DBG] = 1000000 * get_val_from_bound(interval_value_s, 10, 7200);
@@ -579,7 +579,7 @@ void cm_frame_forming(typeCMModel* cm_ptr)
 	//
 	cm_ptr->frame.sys.body.nans_status = cm_ptr->ib_ptr->nans_status + (((cm_ptr->mko_bc_ptr->error) ? 1 : 0) << 13);
 	cm_ptr->frame.sys.body.nans_counter = cm_ptr->ib_ptr->nans_counter + cm_ptr->mko_bc_ptr->error_cnt;
-	cm_ptr->frame.sys.body.cm_status = cm_ptr->ctrl.status;
+	// cm_ptr->frame.sys.body.cm_status = cm_ptr->ctrl.status;
 	cm_ptr->frame.sys.body.rst_cnter = cm_ptr->ctrl.rst_cnter & 0xFF;
 	//
 	cm_ptr->frame.sys.body.operation_time = _rev_u32_by_u16(cm_ptr->ctrl.operation_time);

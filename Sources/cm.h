@@ -119,10 +119,10 @@ typedef  struct
 	uint16_t power_status;				//+24
 	uint16_t power_state;				//+26
 	//
-	uint8_t nans_counter;  				//+28
-	uint8_t nans_status;  				//+29
+	uint16_t nans_status;  				//+29
 	uint8_t rst_cnter;  				//+30
-	uint8_t cm_status;		  			//+31
+	uint8_t nans_counter;  				//+28
+	// uint8_t cm_status;		  		//+31
 	//
 	uint32_t operation_time;  			//+32
 	//
